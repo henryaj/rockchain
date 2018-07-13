@@ -18,3 +18,10 @@ puts bc.valid?
 bc.chain[0] = Block.new(payload: "this is the new shit")
 pp bc
 puts bc.valid?
+
+require_relative './blockchain-proof-of-work'
+
+pow_bc = Blockchain.new
+pow_block1 = PowBlock.new(payload: "lorem ipsum dolor sit amet").mine
+pow_bc << pow_block1
+pp pow_bc
